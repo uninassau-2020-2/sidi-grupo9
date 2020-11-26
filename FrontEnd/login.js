@@ -2,6 +2,21 @@ function login(){
 
     loginusuario = document.getElementById('loginusuario').value
     loginsenha = document.getElementById('loginsenha').value
+
+
+    if (loginusuario == "") {
+  
+      alert('Preencha o campo email');
+      formuser.loginusuario.focus();
+      return false;
+    }
+
+    if (pass == "" ) {
+  
+      alert('Preencha o campo senha ');
+      formuser.loginsenha.focus();
+      return false;
+    }
    
 
 var myHeaders = new Headers();
@@ -18,15 +33,17 @@ password: loginsenha
 cache: 'default' };
 
  fetch('http://localhost:3333/session',myInit)
-.then(function(response) {
-  return response.json().then(data => {
-
-    document.getElementById('loginusuario').value=(data.email);
-
+ .then(function(response) {
+  if(response.status == 200){
+  return window.location = "";}
+  else{
+  alert("Usuario não encontrado");  
+  return  window.location = "";
+  }
 });
-
-});
-
-
 
 }
+
+
+
+

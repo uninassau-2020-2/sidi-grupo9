@@ -10,16 +10,17 @@ import FormPaymentController from './app/controllers/FormPaymentController';
 import OrderController from './app/controllers/OrderController';
 import ProductOrderController from './app/controllers/ProductOrderController';
 import CategoryController from './app/controllers/CategoryController';
-
 import authMiddleware from './app/middlewares/middleware-auth';
+import corsMiddleware from './app/middlewares/middleware-cors';
 
 const routes = new Router();
-
+//routes.use(corsMiddleware);
 routes.post('/users', UserControlller.store);
 routes.post('/sessions', SessionControlller.store);
 
 // Tudo que vier depois estará usando o middleware de authMiddleware
-routes.use(authMiddleware);
+//routes.use(authMiddleware);
+
 
 routes.put('/users', UserControlller.update);
 
@@ -32,7 +33,9 @@ routes.get('/product', ProductController.index);
 routes.get('/product/:id', ProductController.index);
 
 routes.post('/provider', ProviderController.store);
-routes.put('/provider', ProviderController.update);
+routes.put('/provider/:id', ProviderController.update);
+routes.get('/provider/:id', ProviderController.index);
+routes.get('/provider', ProviderController.index);
 
 routes.post('/contact', ContactController.store);
 routes.put('/contact', ContactController.update);

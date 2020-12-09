@@ -20,6 +20,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
 <body>
+    <script type="text/javascript" src="fornecedor.js"></script>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
@@ -31,7 +32,7 @@
 
     <!------------------------------------------------------------------------------->
     <div class="wrapper">
-        
+
         <!-- Page Content  -->
         <div id="content" style="background: #FFFFE0;">
           <nav class="navbar" style="background-color: #696969;">
@@ -44,7 +45,7 @@
               </button>
           </div>
 
-      
+
       </div>
   </nav>
 
@@ -53,12 +54,12 @@
 
 <html>
     <body>
-   
+
       <body>
         <div class="limiter">
           <div class="container">
             <div class="centralizado">
-            
+
               <div class="log-form">
               <h2>Cadastro de Fornecedores</h2>
               </div>
@@ -71,49 +72,49 @@
                   <label>Código: <br>
                     <input name="codigo" type="text" id="codigo" value="" size="10" maxlength="9" placeholder="Código"/></label><br />
                   <label>CNPJ ou CPF: <br>
-                    <input name="cnpj" type="text" id="cnpj" size="60" placeholder="CNPJ ou CPF"/></label><br />
-                  <label>Nome fantasma: <br>
-                    <input name="nome" type="text" id="nome" size="40" placeholder="Nome fantasma"/></label><br />
+                    <input name="cpfCnpj" type="text" id="cpfCnpj" size="60" placeholder="CNPJ ou CPF"/></label><br />
+                  <label>Nome fantasia: <br>
+                    <input name="nmFornecedor" type="text" id="nmFornecedor" size="40" placeholder="Nome fantasia"/></label><br />
                     Ativo
                     <label class="containe">
-                      <input type="checkbox" checked="checked" id="snativo" name="checkbox" />
+                      <input type="checkbox" checked="checked" id="snAtivo" name="checkbox" />
                       <span class="checkmark"></span>
                     </label>
-                  </div>    
+                  </div>
                 </div>
               </form>
             </div>
             <hr>
             <div class="container-form-btn">
               <div class="menu">
-    
+
                 <a href="#.html">
-                  <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
+                  <button class="btn btn-success ml-auto" onclick="cadastrarFornecedor()" style="width: 130px;height: 130px;">
                       <span>Cadastrar</span>
                   </button>
                 </a>
-    
+
                 <a href="#.html">
-                  <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
+                  <button class="btn btn-success ml-auto" onclick="buscarFornecedor()" style="width: 130px;height: 130px;">
                       <span>Buscar</span>
                   </button>
                 </a>
-    
+
                 <a href="#.html">
-                  <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
+                  <button class="btn btn-success ml-auto" onclick="atualizarFornecedor()" style="width: 130px;height: 130px;">
                       <span>Atualizar</span>
                   </button>
                 </a>
-    
+
                 <a href="#.html">
                   <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
                       <span>Deletar</span>
                   </button>
                 </a>
-                
+
               </div>
             </div>
-          </div>  
+          </div>
         </div>
         </body>
 

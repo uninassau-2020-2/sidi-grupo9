@@ -19,9 +19,9 @@ class SessionController {
 
         const user = await User.findOne({ where: { email } });
 
-        if (!user.active) {
-            return res.status(401).json({ error: 'User inactive.' });
-        }
+        // if (!user.active) {
+        //     return res.status(401).json({ error: 'User inactive.' });
+        // }
 
         if (!user) {
             res.status(401).json({ error: 'User not found.' });

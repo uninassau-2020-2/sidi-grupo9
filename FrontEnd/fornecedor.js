@@ -1,11 +1,8 @@
-
-
 function cadastrarFornecedor() {
-    cdFornecdor = document.getElementById('codigo').value
-    nmFornecedor = document.getElementById('nome').value
-    cpfCnpj = document.getElementById('cnpj').value
-    snAtivo = document.getElementById('snativo').value
-
+    cdFornecedor = document.getElementById('codigo').value
+    nmFornecedor = document.getElementById('nmFornecedor').value
+    cpfCnpj = document.getElementById('cpfCnpj').value
+    snAtivo = document.getElementById('snAtivo').value
 
 var myHeaders = new Headers();
 
@@ -15,32 +12,26 @@ mode: 'cors',
 body: JSON.stringify({
 
 fantasy_name: nmFornecedor,
-cnpf_cpf: cpfCnpj,
-active:   snAtivo
+cnpj_cpf: cpfCnpj
+}),
 
-      }),
 cache: 'default' };
 
- fetch('http://localhost:3333/provider',myInit)
-.then(function(response) {
-  return response.json().then(data => {
-    document.getElementById('codigo').value=(data.id)
-    document.getElementById('nmFornecedor').value=(data.fantasy_name);
-    document.getElementById('cpfCnpj').value=(data.cnpf_cpf);
-    document.getElementById('snAtivo').value=(data.active);
-});
-
-});
-
-}
+ fetch('http://localhost:9993/provider',myInit)
+.then(response => {
+}); {
+    alert("Fornecedor cadastrado com sucesso!");
+  return response.json();
+};
+};
 
 function deletaFornecedor(){
 
-    cdFornecdor = document.getElementById('codigo').value
-    nmFornecedor = document.getElementById('nome').value
-    cpfCnpj = document.getElementById('cnpj').value
-    snAtivo = document.getElementById('snativo').value
-     
+    cdFornecedor = document.getElementById('codigo').value
+    nmFornecedor = document.getElementById('nmFornecedor').value
+    cpfCnpj = document.getElementById('cpfCnpj').value
+    snAtivo = document.getElementById('snAtivo').value
+
        var myHeaders = new Headers();
 
        var myInit = { method: 'DELETE',
@@ -48,80 +39,66 @@ function deletaFornecedor(){
        mode: 'cors',
        body: JSON.stringify({
         fantasy_name: nmFornecedor,
-        cnpf_cpf: cpfCnpj,
+        cnpj_cpf: cpfCnpj,
         active:   snAtivo
              }),
        cache: 'default' };
 
-        fetch('http://localhost:3333/provider/'+ cdFornecdor,myInit)
+        fetch('http://localhost:9993/provider/'+ cdFornecedor,myInit)
       .then(function(response) {
-         
+
 });
       LimparTela();
 
 };
 
-
 function atualizarFornecedor() {
+    cdFornecedor = document.getElementById('codigo').value
+    nmFornecedor = document.getElementById('nmFornecedor').value
+    cpfCnpj = document.getElementById('cpfCnpj').value
+    snAtivo = document.getElementById('snAtivo').value
 
-  
-    cdFornecdor = document.getElementById('codigo').value
-    nmFornecedor = document.getElementById('nome').value
-    cpfCnpj = document.getElementById('cnpj').value
-    snAtivo = document.getElementById('snativo').value
-     
        var myHeaders = new Headers();
 
        var myInit = { method: 'PUT',
        headers: { "Content-Type": "application/json; charset=UTF-8" },
        mode: 'cors',
        body: JSON.stringify({
+
+        id: cdFornecedor,
         fantasy_name: nmFornecedor,
-        cnpf_cpf: cpfCnpj,
+        cnpj_cpf: cpfCnpj,
         active:   snAtivo
              }),
        cache: 'default' };
 
-        fetch('http://localhost:3333/provider/'+cdFornecdor,myInit)
+        fetch('http://localhost:9993/provider/'+cdFornecedor, myInit)
       .then(function(response) {
-         return response.json()
+         return response.json(), alert("Fornecedor atualizado!");
 });
 
 };
 
-function BuscarFornecedor(){
-
-
+function buscarFornecedor(){
   cdFornecedor = document.getElementById('codigo').value;
-
 if (cdFornecedor != null ){
+    var myHeaders = new Headers();
+    var myInit = { method: 'GET',
+    headers: { "Content-Type": "application/json; charset=UTF-8" },
+    mode: 'cors',
+    cache: 'default' };
 
-  
-   document.getElementById('nome').value="...";
-   document.getElementById('cnpj').value="...";
-   document.getElementById('snativo').value="...";
-
-   
-     var myHeaders = new Headers();
-
-     var myInit = { method: 'GET',
-     headers: { "Content-Type": "application/json; charset=UTF-8" },
-     mode: 'cors',
-     cache: 'default' };
-
-fetch('http://localhost:3333/provider'+cdFornecedor,myInit)
+fetch('http://localhost:9993/provider/'+cdFornecedor,myInit)
 .then(function(response) {
  return response.json().then(data => {
-
-  document.getElementById('codigo').value=(data.id)
-  document.getElementById('nmFornecedor').value=(data.fantasy_name);
-  document.getElementById('cpfCnpj').value=(data.cnpf_cpf);
-  document.getElementById('snAtivo').value=(data.active);
-});
-  
-  
-
-
+    if (!data.providers[0]) {
+       return alert("Fornecedor não existe!");
+    }
+        document.getElementById('codigo').value=(data.providers[0].id);
+        document.getElementById('nmFornecedor').value=(data.providers[0].fantasy_name);
+        document.getElementById('cpfCnpj').value=(data.providers[0].cnpj_cpf);
+        document.getElementById('snAtivo').checked=(data.providers[0].active);
+    });
 });
 
 }
@@ -134,33 +111,28 @@ else{
      mode: 'cors',
      cache: 'default' };
 
-fetch('http://localhost:3333/provider',myInit)
+fetch('http://localhost:9993/provider',myInit)
 .then(function(response) {
  return response.json().then(data => {
 
   document.getElementById('codigo').value=(data.id)
   document.getElementById('nmFornecedor').value=(data.fantasy_name);
-  document.getElementById('cpfCnpj').value=(data.cnpf_cpf);
+  document.getElementById('cpfCnpj').value=(data.cnpj_cpf);
   document.getElementById('snAtivo').value=(data.active);
   });
 });
 
-}  
-
-
-
-}; 
+}
+};
 
 
 
 function LimparTela(){
-
-
     document.getElementById('codigo').value=" ";
     document.getElementById('nome').value=" ";
     document.getElementById('cpfCnpj').value=" ";
     document.getElementById('snativo').value=" ";
-    
+
 }
 
 

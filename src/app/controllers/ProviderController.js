@@ -3,6 +3,20 @@ import * as Yup from 'yup';
 import Provider from '../models/Provider';
 
 class ProviderContoller {
+    async index(req, res) {
+        if (req.params.id) {
+            const providers = await Provider.findAll({
+                where: { id: req.params.id },
+            });
+
+            return res.json({ providers });
+        }
+
+        const providers = await Provider.findAll();
+
+        return res.json({ providers });
+    }
+
     async store(req, res) {
         const schema = Yup.object().shape({
             fantasy_name: Yup.string().required(),
@@ -10,6 +24,7 @@ class ProviderContoller {
         });
 
         if (!(await schema.isValid(req.body))) {
+            console.log(">>>>>>>>>>>>", req.body)
             return res.status(401).json({ error: 'Validation fails' });
         }
 

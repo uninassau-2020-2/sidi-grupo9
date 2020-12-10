@@ -26,7 +26,6 @@ headers: { "Content-Type": "application/json; charset=UTF-8" },
 mode: 'cors',
 body: JSON.stringify({
 
-  //o login vai ficar feito pelo e-mail ou usuario ?
 email: loginusuario,
 password: loginsenha
 

@@ -30,7 +30,7 @@ routes.put('/userProfile', UserProfileContoller.update);
 routes.post('/userProfile', UserProfileContoller.store);
 
 routes.post('/product', ProductController.store);
-routes.put('/product', ProductController.update);
+routes.put('/product/:id', ProductController.update);
 routes.get('/product', ProductController.index);
 routes.get('/product/:id', ProductController.index);
 

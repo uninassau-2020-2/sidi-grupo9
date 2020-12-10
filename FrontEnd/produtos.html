@@ -59,53 +59,42 @@
               <div class="col-sm">
                 Cadastro de produto
                 <div class="form-style-5">
-                    <form action="f_cadastro.php" method="POST">
+                    <div>
                         <fieldset>
 
-                            <input name="Cusuario" type="text" placeholder="id do produto" required><br>
-                            <input type="text" name="Csenha" placeholder="nome do produto" required><br>
-                            <input type="text" name="nrpreco" placeholder="Preço"><br>
-                            <input type="text" name="nrquantidade" placeholder="Quantidade"><br>
-                             <select name="cars" id="TPCategoria">
-                                <option value="B">Bebida</option>
-                                <option value="V">Verdura</option>
-                                <option value="C">Carnes</option>
-                                <option value="AG">Alimentos em geral</option>
-                              </select><br>
-
+                            <input type="text" name="idproduto" id="idproduto" placeholder="id do produto"><br>
+                            <input type="text" name="nomeproduto" id="nomeproduto" placeholder="nome do produto"><br>
+                            <input type="text" name="nrpreco" id="nrpreco" placeholder="Preço"><br>
+                            <input type="text" name="nrquantidade" id="nrquantidade" placeholder="Quantidade"><br>
+                            <input type="text" name="TPCategoria" id="TPCategoria" placeholder="Categoria"><br>
                             <div class="container-form-btn"></div>
                                 <div class="">
                                     <div class="" style="margin-top: 25px;">
-                                        <a href="#.html">
+                                        <a>
                                             <button class="btn btn-success ml-auto" onclick="buscarProduto()" style="width: 130px;height: 50px;">
                                                 <span>Buscar</span>
                                             </button>
 
-                                        <a href="#.html">
+                                        <a>
                                             <button class="btn btn-success ml-auto" onclick="cadastrarProduto()" style="width: 130px;height: 50px;">
                                                 <span>Cadastrar</span>
                                             </button>
                                         </a>
-                                        <a href="#.html">
+                                        <a>
                                             <button class="btn btn-success ml-auto" onclick="atualizarProduto()" style="width: 130px;height: 50px;">
                                                 <span>Atualizar</span>
                                             </button>
                                         </a>
-                                        <!-- <a href="#.html">
-                                            <button class="btn btn-success ml-auto" style="width: 130px;height: 50px;">
-                                                <span>Deletar</span>
-                                            </button>
-                                        </a> -->
                                     </div>
                                 </div>
                         </fieldset>
-                    </form>
+                    </div>
                 </div>
               </div>
               <div class="col-sm">
                 Produtos cadastrados<br>
                 <a>
-                    <button class="btn btn-success ml-auto" style="width: 130px;height: 50px;">
+                    <button class="btn btn-success ml-auto" onclick="buscarProduto()" style="width: 130px;height: 50px;">
                         <span>Listar</span>
                     </button>
                 </a>

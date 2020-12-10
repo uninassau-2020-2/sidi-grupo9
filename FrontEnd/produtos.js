@@ -1,5 +1,4 @@
 function cadastrarProduto() {
-    idproduto = document.getElementById('idproduto').value
     nomeproduto = document.getElementById('nomeproduto').value
     nrpreco = document.getElementById('nrpreco').value
     nrquantidade = document.getElementById('nrquantidade').value
@@ -12,52 +11,50 @@ function cadastrarProduto() {
     mode: 'cors',
     body: JSON.stringify({
 
-    id: idproduto,
     name: nomeproduto,
-    price: nrpreco
-    //: nrquantidade,
-    //: TPCategoria
+    price: nrpreco,
+    amount: nrquantidade,
+    category: TPCategoria
         }),
 
     cache: 'default' };
-
+    console.log("AQUIIII")
     fetch('http://localhost:9993/product',myInit)
     .then(response => {
-    }); {
         alert("Produto cadastrado com sucesso!");
-    return response.json();
-    };
+        return response.json();
+    });
 };
 
-function deletaProduto(){
+// function deletaProduto(){
 
-    idproduto = document.getElementById('idproduto').value
-    nomeproduto = document.getElementById('nomeproduto').value
-    nrpreco = document.getElementById('nrpreco').value
-    nrquantidade = document.getElementById('nrquantidade').value
-    TPCategoria = document.getElementById('TPCategoria').value
+//     idproduto = document.getElementById('idproduto').value
+//     nomeproduto = document.getElementById('nomeproduto').value
+//     nrpreco = document.getElementById('nrpreco').value
+//     nrquantidade = document.getElementById('nrquantidade').value
+//     TPCategoria = document.getElementById('TPCategoria').value
 
-       var myHeaders = new Headers();
+//        var myHeaders = new Headers();
 
-       var myInit = { method: 'DELETE',
-       headers: { "Content-Type": "application/json; charset=UTF-8" },
-       mode: 'cors',
-       body: JSON.stringify({
-        id: idproduto,
-        name: nomeproduto,
-        price: nrpreco
-        //: nrquantidade,
-        //: TPCategoria
-             }),
-       cache: 'default' };
+//        var myInit = { method: 'DELETE',
+//        headers: { "Content-Type": "application/json; charset=UTF-8" },
+//        mode: 'cors',
+//        body: JSON.stringify({
+//         id: idproduto,
+//         name: nomeproduto,
+//         price: nrpreco,
+//         amount: nrquantidade,
+//         category: TPCategoria
+//              }),
+//        cache: 'default' };
 
-        fetch('http://localhost:9993/product/'+ idproduto, myInit)
-      .then(function(response) {
+//         fetch('http://localhost:9993/product/'+ idproduto, myInit)
+//       .then(function(response) {
 
-});
-      LimparTela();
+// });
+//       LimparTela();
 
-};
+// };
 
 function atualizarProduto() {
     idproduto = document.getElementById('idproduto').value
@@ -75,9 +72,9 @@ function atualizarProduto() {
 
         id: idproduto,
         name: nomeproduto,
-        price: nrpreco
-        //: nrquantidade,
-        //: TPCategoria
+        price: nrpreco,
+        amount: nrquantidade,
+        category: TPCategoria
              }),
        cache: 'default' };
 
@@ -107,8 +104,8 @@ function buscarProduto(){
       idproduto = document.getElementById('idproduto').value=(data.products[0].id);
       nomeproduto = document.getElementById('nomeproduto').value=(data.products[0].name);
       nrpreco = document.getElementById('nrpreco').value=(data.products[0].price);
-    //   nrquantidade = document.getElementById('nrquantidade').value=(data.products[0].);
-    //   TPCategoria = document.getElementById('TPCategoria').value=(data.products[0].);
+      nrquantidade = document.getElementById('nrquantidade').value=(data.products[0].amount);
+      TPCategoria = document.getElementById('TPCategoria').value=(data.products[0].category);
 
       });
   });
@@ -130,8 +127,8 @@ function buscarProduto(){
     idproduto = document.getElementById('idproduto').value=(data.id);
     nomeproduto = document.getElementById('nomeproduto').value=(data.name);
     nrpreco = document.getElementById('nrpreco').value=(data.price);
-    // nrquantidade = document.getElementById('nrquantidade').value=(data.);
-    // TPCategoria = document.getElementById('TPCategoria').value=(data.);
+    nrquantidade = document.getElementById('nrquantidade').value=(data.amount);
+    TPCategoria = document.getElementById('TPCategoria').value=(data.category);
     });
   });
 

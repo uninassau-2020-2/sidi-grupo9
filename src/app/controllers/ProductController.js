@@ -19,11 +19,12 @@ class ProductContoller {
 
     async store(req, res) {
         const schema = Yup.object().shape({
-            cod_product: Yup.string().required(),
             name: Yup.string().required(),
             price: Yup.string().required(),
-            category_id: Yup.number().required(),
-            provider_id: Yup.number().required(),
+            //category_id: Yup.number().required(),
+            //provider_id: Yup.number().required(),
+            category: Yup.string().required(),
+            amount: Yup.number().required(),
         });
 
         if (!(await schema.isValid(req.body))) {
@@ -40,18 +41,20 @@ class ProductContoller {
 
         const {
             id,
-            cod_product,
             name,
             price,
+            category,
+            amount,
             category_id,
             provider_id,
         } = await Product.create(req.body);
 
         return res.json({
             id,
-            cod_product,
             name,
             price,
+            category,
+            amount,
             category_id,
             provider_id,
         });
@@ -59,14 +62,17 @@ class ProductContoller {
 
     async update(req, res) {
         const schema = Yup.object().shape({
-            cod_product: Yup.string().required(),
+            id: Yup.number().required(),
             name: Yup.string().required(),
             price: Yup.string().required(),
-            category_id: Yup.number().required(),
-            provider_id: Yup.number().required(),
+            //category_id: Yup.number().required(),
+            // provider_id: Yup.number().required(),
+            category: Yup.string().required(),
+            amount: Yup.number().required(),
         });
 
         if (!(await schema.isValid(req.body))) {
+            console.log(">>>>>> ", req.body)
             return res.status(401).json({ error: 'Validation fails' });
         }
 
@@ -88,17 +94,19 @@ class ProductContoller {
 
         const {
             id,
-            cod_product,
             price,
+            category,
+            amount,
             category_id,
             provider_id,
         } = await product.update(req.body);
 
         return res.json({
             id,
-            cod_product,
             name,
             price,
+            category,
+            amount,
             category_id,
             provider_id,
         });

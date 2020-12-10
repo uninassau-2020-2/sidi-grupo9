@@ -1,4 +1,4 @@
-function cadastrarFornecedor() {
+function cadastrarProduto() {
     idproduto = document.getElementById('idproduto').value
     nomeproduto = document.getElementById('nomeproduto').value
     nrpreco = document.getElementById('nrpreco').value
@@ -12,16 +12,16 @@ function cadastrarFornecedor() {
     mode: 'cors',
     body: JSON.stringify({
 
-    : idproduto,
-    : nomeproduto,
-    : nrpreco,
-    : nrquantidade,
-    : TPCategoria
+    id: idproduto,
+    name: nomeproduto,
+    price: nrpreco
+    //: nrquantidade,
+    //: TPCategoria
         }),
 
     cache: 'default' };
 
-    fetch('http://localhost:9993/provider',myInit)
+    fetch('http://localhost:9993/product',myInit)
     .then(response => {
     }); {
         alert("Produto cadastrado com sucesso!");
@@ -29,7 +29,7 @@ function cadastrarFornecedor() {
     };
 };
 
-function deletaFornecedor(){
+function deletaProduto(){
 
     idproduto = document.getElementById('idproduto').value
     nomeproduto = document.getElementById('nomeproduto').value
@@ -43,15 +43,15 @@ function deletaFornecedor(){
        headers: { "Content-Type": "application/json; charset=UTF-8" },
        mode: 'cors',
        body: JSON.stringify({
-        : idproduto,
-        : nomeproduto,
-        : nrpreco,
-        : nrquantidade,
-        : TPCategoria
+        id: idproduto,
+        name: nomeproduto,
+        price: nrpreco
+        //: nrquantidade,
+        //: TPCategoria
              }),
        cache: 'default' };
 
-        fetch('http://localhost:9993/provider/'+ cdFornecedor,myInit)
+        fetch('http://localhost:9993/product/'+ idproduto, myInit)
       .then(function(response) {
 
 });
@@ -59,7 +59,7 @@ function deletaFornecedor(){
 
 };
 
-function atualizarFornecedor() {
+function atualizarProduto() {
     idproduto = document.getElementById('idproduto').value
     nomeproduto = document.getElementById('nomeproduto').value
     nrpreco = document.getElementById('nrpreco').value
@@ -73,77 +73,76 @@ function atualizarFornecedor() {
        mode: 'cors',
        body: JSON.stringify({
 
-        : idproduto,
-        : nomeproduto,
-        : nrpreco,
-        : nrquantidade,
-        : TPCategoria
+        id: idproduto,
+        name: nomeproduto,
+        price: nrpreco
+        //: nrquantidade,
+        //: TPCategoria
              }),
        cache: 'default' };
 
-        fetch('http://localhost:9993/provider/'+cdFornecedor, myInit)
+        fetch('http://localhost:9993/product/'+idproduto, myInit)
       .then(function(response) {
          return response.json(), alert("Produto atualizado!");
         });
 };
 
 
-function buscarFornecedor(){
-    cdFornecedor = document.getElementById('idproduto').value;
-  if (cdFornecedor != null ){
+function buscarProduto(){
+    idproduto = document.getElementById('idproduto').value
+  if (idproduto != null ){
       var myHeaders = new Headers();
       var myInit = { method: 'GET',
       headers: { "Content-Type": "application/json; charset=UTF-8" },
       mode: 'cors',
       cache: 'default' };
-  
-  fetch('http://localhost:9993/provider/'+cdFornecedor,myInit)
+
+  fetch('http://localhost:9993/product/'+idproduto,myInit)
   .then(function(response) {
    return response.json().then(data => {
-      if (!data.providers[0]) {
+      if (!data.products[0]) {
          return alert("Produto não existe!");
       }
 
-      idproduto = document.getElementById('idproduto').value=(data.providers[0].);
-      nomeproduto = document.getElementById('nomeproduto').value=(data.providers[0].);
-      nrpreco = document.getElementById('nrpreco').value=(data.providers[0].);
-      nrquantidade = document.getElementById('nrquantidade').value=(data.providers[0].);
-      TPCategoria = document.getElementById('TPCategoria').value=(data.providers[0].);
+      idproduto = document.getElementById('idproduto').value=(data.products[0].id);
+      nomeproduto = document.getElementById('nomeproduto').value=(data.products[0].name);
+      nrpreco = document.getElementById('nrpreco').value=(data.products[0].price);
+    //   nrquantidade = document.getElementById('nrquantidade').value=(data.products[0].);
+    //   TPCategoria = document.getElementById('TPCategoria').value=(data.products[0].);
 
       });
   });
-  
+
   }
   else{
-  
+
        var myHeaders = new Headers();
-  
+
        var myInit = { method: 'GET',
        headers: { "Content-Type": "application/json; charset=UTF-8" },
        mode: 'cors',
        cache: 'default' };
-  
-  fetch('http://localhost:9993/provider',myInit)
+
+  fetch('http://localhost:9993/product',myInit)
   .then(function(response) {
    return response.json().then(data => {
 
-    idproduto = document.getElementById('idproduto').value=(data.);
-    nomeproduto = document.getElementById('nomeproduto').value=(data.);
-    nrpreco = document.getElementById('nrpreco').value=(data.);
-    nrquantidade = document.getElementById('nrquantidade').value=(data.);
-    TPCategoria = document.getElementById('TPCategoria').value=(data.);
+    idproduto = document.getElementById('idproduto').value=(data.id);
+    nomeproduto = document.getElementById('nomeproduto').value=(data.name);
+    nrpreco = document.getElementById('nrpreco').value=(data.price);
+    // nrquantidade = document.getElementById('nrquantidade').value=(data.);
+    // TPCategoria = document.getElementById('TPCategoria').value=(data.);
     });
   });
-  
+
   }
 };
 
 function LimparTela(){
 
-    idproduto = document.getElementById('idproduto').value=" ";
-    nomeproduto = document.getElementById('nomeproduto').value=" ";
+    idproduto = document.getElementById('idproduto').value="";
+    nomeproduto = document.getElementById('nomeproduto').value="";
     nrpreco = document.getElementById('nrpreco').value=" ";
-    nrquantidade = document.getElementById('nrquantidade').value=" ";
-    TPCategoria = document.getElementById('TPCategoria').value=" ";
-
+    nrquantidade = document.getElementById('nrquantidade').value="";
+    TPCategoria = document.getElementById('TPCategoria').value="";
 }

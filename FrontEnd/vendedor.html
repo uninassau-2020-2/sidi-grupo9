@@ -72,7 +72,7 @@
             <label>Login: <br>
               <input name="login" type="text" id="login" size="40" placeholder="Login"/></label><br />
             <label>Senha: <br>
-              <input name="senha" type="text" id="senha" size="40" placeholder="Senha"/></label><br />
+              <input name="senha" type="password" id="senha" size="40" placeholder="Senha"/></label><br />
 
               <div class="topo">
             </div>
@@ -85,19 +85,19 @@
           <div class="menu">
             <div class="col text-center" style="margin-top: 25px;">
               <a href="#.html">
-                <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
+                <button class="btn btn-success ml-auto" onclick="cadastrarVendedor()" style="width: 130px;height: 130px;">
                     <span>Cadastrar</span>
                 </button>
               </a>
 
               <a href="#.html">
-                <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
+                <button class="btn btn-success ml-auto" onclick="visualizarVendedor()" style="width: 130px;height: 130px;">
                     <span>Visualizar</span>
                 </button>
               </a>
 
               <a href="#.html">
-                <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
+                <button class="btn btn-success ml-auto" onclick="atualizarVendedor()" style="width: 130px;height: 130px;">
                     <span>Atualizar</span>
                 </button>
               </a>
@@ -115,7 +115,7 @@
         </div>
         </div>
 
-        <script src="Js/cadastros.js"></script>
+        <script src="vendedor.js"></script>
         </body>
 
     </body>

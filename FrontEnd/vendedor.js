@@ -1,4 +1,4 @@
-function cadastrarFornecedor() {
+function cadastrarVendedor() {
     codigo = document.getElementById('codigo').value
     name = document.getElementById('name').value
     login = document.getElementById('login').value
@@ -11,15 +11,15 @@ headers: { "Content-Type": "application/json; charset=UTF-8" },
 mode: 'cors',
 body: JSON.stringify({
 
-: codigo,
-: name,
-: login,
-: senha
+id: codigo,
+name: name,
+email: login,
+password: senha
 }),
 
 cache: 'default' };
 
- fetch('http://localhost:9993/provider',myInit)
+ fetch('http://localhost:9993/users',myInit)
 .then(response => {
 }); {
     alert("Vendedor cadastrado com sucesso!");
@@ -27,35 +27,35 @@ cache: 'default' };
 };
 };
 
-function deletaFornecedor(){
+// function deletaFornecedor(){
 
-    codigo = document.getElementById('codigo').value
-    name = document.getElementById('name').value
-    login = document.getElementById('login').value
-    senha = document.getElementById('senha').value
+//     codigo = document.getElementById('codigo').value
+//     name = document.getElementById('name').value
+//     login = document.getElementById('login').value
+//     senha = document.getElementById('senha').value
 
-       var myHeaders = new Headers();
+//        var myHeaders = new Headers();
 
-       var myInit = { method: 'DELETE',
-       headers: { "Content-Type": "application/json; charset=UTF-8" },
-       mode: 'cors',
-       body: JSON.stringify({
-        : codigo,
-        : name,
-        : login,
-        : senha
-             }),
-       cache: 'default' };
+//        var myInit = { method: 'DELETE',
+//        headers: { "Content-Type": "application/json; charset=UTF-8" },
+//        mode: 'cors',
+//        body: JSON.stringify({
+//         : codigo,
+//         : name,
+//         : login,
+//         : senha
+//              }),
+//        cache: 'default' };
 
-        fetch('http://localhost:9993/provider/'+ cdFornecedor,myInit)
-      .then(function(response) {
+//         fetch('http://localhost:9993/users/'+ codigo, myInit)
+//       .then(function(response) {
 
-});
-      LimparTela();
+// });
+//       LimparTela();
 
-};
+// };
 
-function atualizarFornecedor() {
+function atualizarVendedor() {
     codigo = document.getElementById('codigo').value
     name = document.getElementById('name').value
     login = document.getElementById('login').value
@@ -68,39 +68,40 @@ function atualizarFornecedor() {
        mode: 'cors',
        body: JSON.stringify({
 
-        : codigo,
-        : name,
-        : login,
-        : senha
+        id: codigo,
+        name: name,
+        email: login,
+        password: senha
              }),
        cache: 'default' };
 
-        fetch('http://localhost:9993/provider/'+cdFornecedor, myInit)
+        fetch('http://localhost:9993/users/'+codigo, myInit)
       .then(function(response) {
-         return response.json(), alert("Fornecedor atualizado!");
+         return response.json(), alert("Vendedor atualizado!");
 });
 
 };
 
-function buscarFornecedor(){
-  cdFornecedor = document.getElementById('codigo').value;
-if (cdFornecedor != null ){
+function visualizarVendedor(){
+    codigo = document.getElementById('codigo').value
+if (codigo != null ){
     var myHeaders = new Headers();
     var myInit = { method: 'GET',
     headers: { "Content-Type": "application/json; charset=UTF-8" },
     mode: 'cors',
     cache: 'default' };
 
-fetch('http://localhost:9993/provider/'+cdFornecedor,myInit)
+fetch('http://localhost:9993/users/'+codigo, myInit)
 .then(function(response) {
  return response.json().then(data => {
-    if (!data.providers[0]) {
-       return alert("Fornecedor não existe!");
+     console.log(">>>>>>>>>>>>>>>>>>>", data)
+    if (!data.users[0]) {
+       return alert("Vendedor não existe!");
     }
-        codigo = document.getElementById('codigo').value=(data.providers[0].);
-        name = document.getElementById('name').value=(data.providers[0].);
-        login = document.getElementById('login').value=(data.providers[0].);
-        senha = document.getElementById('senha').value=(data.providers[0].);
+        codigo = document.getElementById('codigo').value=(data.users[0].id);
+        name = document.getElementById('name').value=(data.users[0].name);
+        login = document.getElementById('login').value=(data.users[0].email);
+        //senha = document.getElementById('senha').value=(data.providers[0].password);
     });
 });
 
@@ -114,14 +115,14 @@ else{
      mode: 'cors',
      cache: 'default' };
 
-fetch('http://localhost:9993/provider',myInit)
+fetch('http://localhost:9993/users',myInit)
 .then(function(response) {
  return response.json().then(data => {
 
   document.getElementById('codigo').value=(data.id)
-  document.getElementById('name').value=(data.fantasy_name);
-  document.getElementById('login').value=(data.cnpj_cpf);
-  document.getElementById('senha').value=(data.active);
+  document.getElementById('name').value=(data.name);
+  document.getElementById('login').value=(data.email);
+  //document.getElementById('senha').value=(data.password);
   });
 });
 

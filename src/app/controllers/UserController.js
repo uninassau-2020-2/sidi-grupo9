@@ -3,6 +3,20 @@ import * as Yup from 'yup';
 import User from '../models/User';
 
 class UserController {
+    async index(req, res) {
+        if (req.params.id) {
+            const users = await User.findAll({
+                where: { id: req.params.id },
+            });
+
+            return res.json({ users });
+        }
+
+        const users = await User.findAll();
+
+        return res.json({ users });
+    }
+
     async store(req, res) {
         const schema = Yup.object().shape({
             name: Yup.string().required(),
@@ -38,18 +52,19 @@ class UserController {
 
     async update(req, res) {
         const schema = Yup.object().shape({
+            id: Yup.number(),
             name: Yup.string(),
             email: Yup.string().email(),
-            user_profile_id: Yup.number(),
-            oldPassword: Yup.string().min(6),
-            password: Yup.string()
-                .min(6)
-                .when('oldPassword', (oldPassword, field) =>
-                    oldPassword ? field.required() : field
-                ),
-            confirmPassword: Yup.string().when('password', (password, field) =>
-                password ? field.required().oneOf([Yup.ref('password')]) : field
-            ),
+            // user_profile_id: Yup.number(),
+            // oldPassword: Yup.string().min(6),
+            // password: Yup.string()
+            //     .min(6)
+            //     .when('oldPassword', (oldPassword, field) =>
+            //         oldPassword ? field.required() : field
+            //     ),
+            // confirmPassword: Yup.string().when('password', (password, field) =>
+            //     password ? field.required().oneOf([Yup.ref('password')]) : field
+            // ),
         });
 
         if (!(await schema.isValid(req.body))) {
@@ -70,9 +85,9 @@ class UserController {
             }
         }
 
-        if (oldPassword && !(await user.checkPassword(oldPassword))) {
-            return res.status(401).json({ error: 'Password does not match.' });
-        }
+        // if (oldPassword && !(await user.checkPassword(oldPassword))) {
+        //     return res.status(401).json({ error: 'Password does not match.' });
+        // }
 
         const { id, name, active, user_profile_id } = await user.update(
             req.body

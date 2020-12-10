@@ -22,7 +22,9 @@ routes.post('/sessions', SessionControlller.store);
 //routes.use(authMiddleware);
 
 
-routes.put('/users', UserControlller.update);
+routes.put('/users/:id', UserControlller.update);
+routes.get('/users/:id', UserControlller.index);
+routes.get('/users/', UserControlller.index);
 
 routes.put('/userProfile', UserProfileContoller.update);
 routes.post('/userProfile', UserProfileContoller.store);

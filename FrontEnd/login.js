@@ -45,3 +45,7 @@ fetch('http://localhost:9993/sessions',myInit)
 });
 
 }
+
+function sair() {
+    window.location.href="index.html"
+}

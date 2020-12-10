@@ -3,6 +3,20 @@ import * as Yup from 'yup';
 import Contact from '../models/Contact';
 
 class ContactContoller {
+    async index(req, res) {
+        if (req.params.id) {
+            const contacts = await Contact.findAll({
+                where: { id: req.params.id },
+            });
+
+            return res.json({ contacts });
+        }
+
+        const contacts = await Contact.findAll();
+
+        return res.json({ contacts });
+    }
+
     async store(req, res) {
         const schema = Yup.object().shape({
             email: Yup.string().email().required(),

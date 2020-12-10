@@ -36,9 +36,12 @@ routes.post('/provider', ProviderController.store);
 routes.put('/provider/:id', ProviderController.update);
 routes.get('/provider/:id', ProviderController.index);
 routes.get('/provider', ProviderController.index);
+routes.delete('/provider/:id', ProviderController.delete);
 
 routes.post('/contact', ContactController.store);
-routes.put('/contact', ContactController.update);
+routes.put('/contact/:id', ContactController.update);
+routes.get('/contact/:id', ContactController.index);
+routes.get('/contact', ContactController.index);
 
 routes.post('/formPayment', FormPaymentController.store);
 routes.put('/formPayment', FormPaymentController.update);

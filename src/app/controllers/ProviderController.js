@@ -8,11 +8,21 @@ class ProviderContoller {
             const providers = await Provider.findAll({
                 where: { id: req.params.id },
             });
-
+            console.log(">>>>>>>>>>>> ", providers)
             return res.json({ providers });
         }
 
         const providers = await Provider.findAll();
+
+        return res.json({ providers });
+    }
+
+    async delete(req, res) {
+        const providers = await Provider.findByPk(req.params.id);
+
+        providers.active = false;
+
+        await providers.save();
 
         return res.json({ providers });
     }
@@ -24,7 +34,6 @@ class ProviderContoller {
         });
 
         if (!(await schema.isValid(req.body))) {
-            console.log(">>>>>>>>>>>>", req.body)
             return res.status(401).json({ error: 'Validation fails' });
         }
 

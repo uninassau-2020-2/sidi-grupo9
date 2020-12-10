@@ -11,7 +11,7 @@ function login(){
       return false;
     }
 
-    if (pass == "" ) {
+    if (loginsenha == "" ) {
 
       alert('Preencha o campo senha ');
       formuser.loginsenha.focus();
@@ -36,8 +36,7 @@ cache: 'default' };
  fetch('http://localhost:9993/session',myInit)
  .then(function(response) {
   if(response.status == 200){
-    //aqui coloca o caminho do menu do teu pc 
-  return window.location = "";}
+  return window.location = "./clientes.html";}
   else{
   alert("Usuario não encontrado");
   return  window.location = "";

@@ -25,7 +25,7 @@ cache: 'default' };
 };
 };
 
-function deletaFornecedor(){
+function deletarFornecedor(){
 
     cdFornecedor = document.getElementById('codigo').value
     nmFornecedor = document.getElementById('nmFornecedor').value
@@ -35,20 +35,15 @@ function deletaFornecedor(){
        var myHeaders = new Headers();
 
        var myInit = { method: 'DELETE',
-       headers: { "Content-Type": "application/json; charset=UTF-8" },
-       mode: 'cors',
-       body: JSON.stringify({
-        fantasy_name: nmFornecedor,
-        cnpj_cpf: cpfCnpj,
-        active:   snAtivo
-             }),
-       cache: 'default' };
+        headers: { "Content-Type": "application/json; charset=UTF-8" },
+        mode: 'cors',
+        cache: 'default'
+       };
 
-        fetch('http://localhost:9993/provider/'+ cdFornecedor,myInit)
+        fetch('http://localhost:9993/provider/'+ cdFornecedor, myInit)
       .then(function(response) {
-
+        return response.json(), LimparTela();
 });
-      LimparTela();
 
 };
 
@@ -125,15 +120,10 @@ fetch('http://localhost:9993/provider',myInit)
 }
 };
 
-
-
 function LimparTela(){
-    document.getElementById('codigo').value=" ";
-    document.getElementById('nome').value=" ";
-    document.getElementById('cpfCnpj').value=" ";
-    document.getElementById('snativo').value=" ";
+    document.getElementById('codigo').value="";
+    document.getElementById('nmFornecedor').value="";
+    document.getElementById('cpfCnpj').value="";
+    document.getElementById('snAtivo').checked= false;
 
 }
-
-
-

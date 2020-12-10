@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="menustyle.css">
+    <!-- <link rel="stylesheet" href="menustyle.css"> -->
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -31,7 +31,7 @@
 
     <!------------------------------------------------------------------------------->
     <div class="wrapper">
-        
+
 
         <!-- Page Content  -->
         <div id="content" style="background: #FFFFE0;">
@@ -45,7 +45,7 @@
                 </button>
             </div>
 
-        
+
         </div>
     </nav>
 
@@ -53,12 +53,12 @@
 
 <html>
     <body>
-   
+
         <body>
             <div class="limiter">
             <div class="container">
             <div class="">
-            
+
             <div class="log-form">
                <h2>Contato de Fornecedores</h2>
             </div>
@@ -68,34 +68,31 @@
                 <div class="log-form">
 
                   <label>Código Fornecedor: <br>
-                    <input name="codigoFonec" type="text" id="codigoFonec" value="" size="15" maxlength="9" placeholder="Código Fornecedor"/></label><br />
+                    <input name="codigoFornec" type="text" id="codigoFornec" value="" size="15" maxlength="9" placeholder="Código Fornecedor"/></label><br />
 
                   <label>Código: <br>
                     <input name="codigo" type="text" id="codigo" value="" size="5" maxlength="9" placeholder="Código"/></label><br />
 
                   <label>Logradouro:<br>
-                    <input name="Logradouro" type="text" id="Logradouro" value="" size="100" maxlength="100" placeholder="Logradouro"/></label><br />
+                    <input name="logradouro" type="text" id="logradouro" value="" size="100" maxlength="100" placeholder="Logradouro"/></label><br />
 
-                    <label>N.: <br>
-                      <input name="nc" type="text" id="nc" value="" size="60" maxlength="9" placeholder="Número da casa"/></label><br />
+                    <label>Número: <br>
+                      <input name="nCasa" type="text" id="nCasa" value="" size="60" maxlength="9" placeholder="Número da casa"/></label><br />
 
                 <label>Cep: <br>
                     <input name="cep" type="text" id="cep" value="" size="60" maxlength="9" placeholder="Cep"/></label><br />
 
-                  <label>Telefone Fixo: <br>
-                    <input name="TelefoneFixo" type="text" id="TelefoneFixo" size="60" placeholder="Telefone Fixo"  /></label><br />
-
-                    <label>Celular: <br>
-                      <input name="Celular" type="text" id="Celular" size="60" placeholder="Celular"  /></label><br />
+                    <label>Telefone: <br>
+                      <input name="telefone" type="text" id="telefone" size="60" placeholder="Celular"  /></label><br />
 
                   <label>Bairro: <br>
                     <input name="bairro" type="text" id="bairro" size="60" placeholder="Bairro"  /></label><br />
 
                     <label>Complemento: <br>
-                      <input name="Complemento" type="text" id="Complemento" size="60" placeholder="Complemento"  /></label><br />
+                      <input name="complemento" type="text" id="complemento" size="60" placeholder="Complemento"  /></label><br />
 
                       <label>Email: <br>
-                        <input name="Email" type="text" id="Email" size="60" placeholder="Email"  /></label><br />
+                        <input name="email" type="text" id="email" size="60" placeholder="Email"  /></label><br />
 
                   <label>Cidade: <br>
                     <input name="cidade" type="text" id="cidade" size="60" placeholder="Cidade"  /></label><br />
@@ -103,39 +100,39 @@
                   <label>Estado: <br>
                     <input name="uf" type="text" id="uf" size="2" placeholder="Estado"  /></label><br />
 
-                </div>    
+                </div>
               </div>
             </section>
             </div>
             <hr>
-   
+
 
               <div class="container-form-btn">
                 <div class="menu">
                   <div class="col text-center" style="margin-top: 25px;">
 
                     <a href="#.html">
-                      <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
+                      <button class="btn btn-success ml-auto" onclick="buscarContato()" style="width: 130px;height: 130px;">
                           <span>Buscar</span>
                       </button>
                     </a>
                     <a href="#.html">
-                      <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
+                      <button class="btn btn-success ml-auto" onclick="cadastrarContato()" style="width: 130px;height: 130px;">
                           <span>Cadastrar</span>
                       </button>
-                    </a>      
-        
+                    </a>
+
                     <a href="#.html">
-                      <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
+                      <button class="btn btn-success ml-auto" onclick="atualizarContato()" style="width: 130px;height: 130px;">
                           <span>Atualizar</span>
                       </button>
                     </a>
-        
-                    <a href="#.html">
-                      <button class="btn btn-success ml-auto" style="width: 130px;height: 130px;">
+
+                    <!-- <a href="#.html">
+                      <button class="btn btn-success ml-auto" onclick="deletaContato()" style="width: 130px;height: 130px;">
                           <span>Deletar</span>
                       </button>
-                    </a>
+                    </a> -->
 
 
                   </div>
@@ -144,8 +141,8 @@
 
             </div>
             </div>
-            
-            <script src="contatofornecedor.js"></script>
+
+            <script src="clientes.js"></script>
             </body>
         </body>
 

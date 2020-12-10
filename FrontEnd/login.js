@@ -32,18 +32,16 @@ password: loginsenha
       }),
 cache: 'default' };
 
- fetch('http://localhost:9993/session',myInit)
- .then(function(response) {
-  if(response.status == 200){
-  return window.location = "./clientes.html";}
-  else{
-  alert("Usuario não encontrado");
-  return  window.location = "";
-  }
+fetch('http://localhost:9993/sessions',myInit)
+.then(response => {
+ return response.json().then(data => {
+     if(data.user) {
+        window.location.href="cadastroefetuado.html"
+     }else if(data.error){
+         alert("Usuario ou senha invalidos")
+     }
+
+ });
 });
 
 }
-
-
-
-

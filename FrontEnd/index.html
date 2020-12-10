@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +21,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
 <body>
+    <script src="login.js"></script>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
@@ -59,118 +59,19 @@
                 <ul class="nav navbar-nav ml-auto">
                     <br>
                     <li class="nav-item" align="center">
-                        <form action="login.php" method="POST" style="margin-bottom: 2px;">
+                        <form style="margin-bottom: 2px;">
                             &nbsp
-                            <input type="text" name="loginusuario" placeholder="E-mail" style="border-radius: 4px;">
-                            <input type="password" name="loginsenha" placeholder="Senha" style="border-radius: 4px;">
+                            <input type="text" name="loginusuario" id="loginusuario" placeholder="E-mail" style="border-radius: 4px;">
+                            <input type="password" name="loginsenha" id="loginsenha" placeholder="Senha" style="border-radius: 4px;">
                             &nbsp
-                            <button type="submit" class="btn btn-success">Entrar</button>
                         </form>
                     </li>
                 </ul>
+                <button onclick="login()" class="btn btn-success">TESTE</button>
             </div>
         </div>
     </nav>
-
-
-
-
-
-<!--------------------------------------------->
-
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>To do Eat</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	</head>
-	<body>
-
-	</body>
+    </div>
+    </div>
+</body>
 </html>
-
-<style>
-div.img1 {
-    background-image: url(marca.png);
-    background-size: 140%;
-    background-position: center;
-}
-div.img2 {
-    background-image: url(marca.png);
-    background-size: 140%;
-    background-position: center;
-}
-div.img3 {
-    background-image: url(marca.png);
-    background-size: 140%;
-    background-position: center;
-}
-</style>
-
-<script>
-    $(function() {
-    $('#container').hover(function() {
-        $('#imagem').css('margin-left', '0%');
-        $('#texto').css('margin-left', '0%');
-        $('#texto').css('transform', 'translateX(100%)');
-    }, function() {
-        $('#imagem').css('margin-left', '');
-        $('#texto').css('margin-left', '');
-        $('#texto').css('transform', '');
-    });
-    $('#container2').hover(function() {
-        $('#imagem2').css('margin-left', '0%');
-        $('#texto2').css('margin-left', '0%');
-        $('#texto2').css('transform', 'translateX(100%)');
-    }, function() {
-        $('#imagem2').css('margin-left', '');
-        $('#texto2').css('margin-left', '');
-        $('#texto2').css('transform', '');
-    });
-    $('#container3').hover(function() {
-        $('#imagem3').css('margin-left', '0%');
-        $('#texto3').css('margin-left', '0%');
-        $('#texto3').css('transform', 'translateX(100%)');
-    }, function() {
-        $('#imagem3').css('margin-left', '');
-        $('#texto3').css('margin-left', '');
-        $('#texto3').css('transform', '');
-    });
-    });
-</script>
-<style>
-div.container {
-    height: 300px;
-    width: 70%;
-    margin: 30px auto 0 auto;
-    min-width: 600px;
-    max-width: 1000px;
-    position: relative;
-}
-div.imagem {
-    width: 50%;
-    height: 100%;
-    z-index: 1;
-    margin-left: 25%;
-    position:absolute;
-    transition: all 0.3s ease;
-}
-div.texto {
-    width: 50%;
-    height: 100%;
-    margin-left: 25%;
-    position:absolute;
-    transition: all 0.3s ease;
-    font-size: 20px;
-    vertical-align: middle;
-    font-family: sans-serif;
-    display: flex;
-}
-i {
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    word-wrap: break-word;
-}
-</style>

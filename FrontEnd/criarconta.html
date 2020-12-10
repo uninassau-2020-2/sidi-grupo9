@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Fritadela</title>
+    <title>Rei do cangaço</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -88,15 +88,15 @@
 		<form action="f_cadastro.php" method="POST">
 			<fieldset>
 				<legend><span class="number">1</span><b>Cadastrar</b></legend>
-				<input name="Cusuario" type="text" placeholder="Nome de Usuario" required>
-				<input type="password" name="Csenha" placeholder="Senha" required>
-				<input type="password" name="Cconfirmasenha" placeholder="Confirmar Senha">
-				<input type="text" name="Cemail" placeholder="Email" required>
-				<input type="text" name="Cconfirmaemail" placeholder="Confirmar Email" required>
+				<input name="Cusuario" id="Cusuario"  type="text" placeholder="Nome de Usuario" required>
+				<input type="password" name="Csenha" id="Csenha" placeholder="Senha" required>
+				<input type="password" name="Cconfirmasenha" id="Cconfirmasenha" placeholder="Confirmar Senha">
+				<input type="text" name="Cemail" id="Cemail" placeholder="Email" required>
+				<input type="text" name="Cconfirmaemail" id="Cconfirmaemail" placeholder="Confirmar Email" required>
 				<fieldset>
 					<legend><span class="number">2</span><b>Informações pessoais</b></legend>
-					<input type="text" name="Cnome" placeholder="Nome Completo" required>
-					<input type="date" name="Cnascimento" placeholder="Data de Nascimento" required>
+					<input type="text" name="Cnome" id="Cnome" placeholder="Nome Completo" required>
+					<input type="date" name="Cnascimento" id="Cnascimento" placeholder="Data de Nascimento" required>
 
 					<select id="job" name="tipoconta" required>
 						<option value="" disabled selected>Tipo de conta</option>

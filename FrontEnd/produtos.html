@@ -62,10 +62,10 @@
                     <form action="f_cadastro.php" method="POST">
                         <fieldset>
                             
-                            <input name="Cusuario" type="text" placeholder="id do produto" required><br>
-                            <input type="text" name="Csenha" placeholder="nome do produto" required><br>
-                            <input type="text" name="nrpreco" placeholder="Preço"><br>
-                            <input type="text" name="nrquantidade" placeholder="Quantidade"><br>
+                            <input name="idproduto" id="idproduto" type="text" placeholder="id do produto" required><br>
+                            <input type="text" name="nomeproduto" id="nomeproduto" placeholder="nome do produto" required><br>
+                            <input type="text" name="nrpreco" id="nrpreco" placeholder="Preço"><br>
+                            <input type="text" name="nrquantidade" id="nrquantidade" placeholder="Quantidade"><br>
                              <select name="cars" id="TPCategoria">
                                 <option value="B">Bebida</option>
                                 <option value="V">Verdura</option>
@@ -112,6 +112,7 @@
               </div>
             </div>
           </div>
+          <script src="produtos.js"></script>
     </body>
 </html>
 

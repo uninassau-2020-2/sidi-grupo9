@@ -51,7 +51,6 @@ class UserController {
     }
 
     async update(req, res) {
-        console.log(">>>>>>>>>> ", req.userId)
         const schema = Yup.object().shape({
             id: Yup.number(),
             name: Yup.string(),
@@ -74,7 +73,7 @@ class UserController {
 
         const { email } = req.body;
 
-        const user = await User.findByPk(req.userId);
+        const user = await User.findByPk(req.body.id);
         if (email !== user.email) {
             const userExists = await User.findOne({
                 where: { email },
